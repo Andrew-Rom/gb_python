@@ -6,8 +6,8 @@ work_days = ['1', '2', '3', '4', '5']
 vacation_days = ['6', '7']
 value = input('Введите число дня недели, где 1 - понедельник, 7 - воскресенье: ')
 if value in work_days:
-    print('Это рабочий день.')
+    print('Нет, это рабочий день.')
 elif value in vacation_days:
-    print('Это выходной день.')
+    print('Да, это выходной день.')
 else:
     print('Введены некорректные данные.')
