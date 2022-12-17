@@ -19,7 +19,7 @@ output = list(range((n * (-1)), 0))
 temp = list(range(n + 1))
 output = output + temp
 print(output)
-if (pos1 > 0 and pos1 < len(output) - 1) and (pos2 > 0 and pos2 < len(output) - 1):
+if (pos1 > 0 and pos1 <= len(output)) and (pos2 > 0 and pos2 <= len(output)):
     result = output[pos1 - 1] * output[pos2 - 1]
     print(result)
 else:
