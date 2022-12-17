@@ -18,6 +18,9 @@ pos2 = int(input('Position two: '))
 output = list(range((n * (-1)), 0))
 temp = list(range(n + 1))
 output = output + temp
-result = output[pos1 - 1] * output[pos2 - 1]
 print(output)
-print(result)
+if (pos1 >= 0 and pos1 < len(output) - 1) or (pos2 >= 0 and pos2 < len(output) - 1):
+    result = output[pos1 - 1] * output[pos2 - 1]
+    print(result)
+else:
+    print('There are no values for these indexes!')
