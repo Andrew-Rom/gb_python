@@ -31,7 +31,7 @@ print(rnd_list)
 
 sum_of_pair_list = []
 for i in range(len_of_list // 2):
-    temp = rnd_list[i] + rnd_list[len_of_list - 1 - i]
+    temp = rnd_list[i] * rnd_list[len_of_list - 1 - i]
     sum_of_pair_list.append(temp)
 if len_of_list % 2 != 0:
     sum_of_pair_list.append(rnd_list[len_of_list // 2])
