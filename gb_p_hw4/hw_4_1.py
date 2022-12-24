@@ -20,4 +20,8 @@ clear()
 
 value = input('Enter a real number: ')
 d = input("Enter the required accuracy '0.0001': ")
-print(Decimal(value).quantize(Decimal(d)))
+if value.replace('-', '').replace('.', '').isdigit()\
+        and d.replace('-', '').replace('.', '').isdigit():
+    print(Decimal(value).quantize(Decimal(d)))
+else:
+    print('Error. Incorrect input.')
