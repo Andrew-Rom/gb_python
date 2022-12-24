@@ -32,7 +32,7 @@ def get_random_list(len_list: int):
 
 def get_unique_items(input_list: list):
     output_list = []
-    for i in range(len(input_list) - 1):
+    for i in range(len(input_list)):
         if input_list.count(input_list[i]) == 1:
             output_list.append(input_list[i])
     return output_list
