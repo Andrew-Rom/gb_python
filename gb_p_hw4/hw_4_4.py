@@ -29,12 +29,12 @@ import os
 clear = lambda: os.system('cls')
 clear()
 
-degree = int(input('Enter degree of the polynomial: '))
-coefficients = random.sample(range(0, 10), k=degree)
-polynomial = ''
-if len(coefficients) < 1:
-    polynomial = 'x = 0'
-else:
+degree = input('Enter degree of the polynomial: ')
+
+if degree.isdigit() and int(degree) >= 1:
+    degree = int(degree)
+    coefficients = random.sample(range(0, 10), k=degree)
+    polynomial = ''
     for i in range(len(coefficients)):
         if i != len(coefficients) - 1 \
                 and i != len(coefficients) - 2 \
@@ -53,5 +53,7 @@ else:
         elif i == len(coefficients) - 1 \
                 and coefficients[i] == 0:
             polynomial += ' = 0'
-with open('file_task_hw_4_4.txt', "a", encoding="utf-8") as out_file:
-    out_file.write(f'{polynomial}\n')
+    with open('file_task_hw_4_4.txt', "a", encoding="utf-8") as out_file:
+        out_file.write(f'{polynomial}\n')
+else:
+    print('Error. Incorrect input.')
