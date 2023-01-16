@@ -2,6 +2,7 @@
 # Реализуйте RLE алгоритм: реализуйте модуль сжатия и восстановления данных.
 # Входные и выходные данные хранятся в отдельных текстовых файлах.
 
+from os import path
 import os
 clear = lambda: os.system('cls')
 clear()
@@ -52,7 +53,14 @@ def decode_file_and_output(encoded_file):
 
 file_input = input("Enter the name of the file with the text: ")
 file_encode = input("Enter the file name to record: ")
+if path.exists(file_input):
+    encode_file_into_new_file(file_input, file_encode)
+else:
+    print("The input is incorrect")
+
 file_decode = input("Enter the name of the file to decode: ")
-encode_file_into_new_file(file_input, file_encode)
-result = decode_file_and_output(file_decode)
-print('\n'.join(result))
+if path.exists(file_decode):
+    result = decode_file_and_output(file_decode)
+    print('\n'.join(result))
+else:
+    print("The input is incorrect")
