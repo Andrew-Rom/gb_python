@@ -20,7 +20,7 @@ def bot(total_candies, limit):
         step = random.randint(1, limit + 1)
     return step
 
-candies_total = 121
+candies_total = 2021
 candies_limit = 28
 
 game_type = None
@@ -29,16 +29,16 @@ while not game_type in range(1,3):
                           "1. Human (player 1) vs. Human (player 2)\n\t"
                           "2. Human (player 1) vs. Bot (player 2)\n"
                           "Enter '1' or '2': "))
-print(f"The game started.\nYou can take any amount of candy but not more than {candies_limit}.")
+print(f"The game started.\nYou can take any amount of candies but not more than {candies_limit}.")
 
 player = random.randint(1, 2)
 print(f"First: player {player}")
 
 while candies_total > 0:
-    print(f"\nNow amount of candy is: {candies_total}.")
+    print(f"\nNow amount of candies is: {candies_total}.")
     if game_type == 2 and player == 2:
         player_step = bot(candies_total, candies_limit)
-        print(f"The bot took {player_step} candies")
+        print(f"The bot took {player_step} candies.")
         candies_total -= player_step
         if candies_total < 0:
             break
@@ -47,7 +47,7 @@ while candies_total > 0:
     elif game_type == 2 and player == 1:
         player_step = int(input(f"Player {player}, take: "))
         if player_step <= 0 or player_step > candies_limit:
-            print("Incorrect input")
+            print("Incorrect input. Try again.")
         else:
             candies_total -= player_step
             if candies_total < 0:
@@ -57,7 +57,7 @@ while candies_total > 0:
     elif game_type == 1 and player == 1:
         player_step = int(input(f"Player {player}, take: "))
         if player_step < 0 or player_step > candies_limit:
-            print("Incorrect input")
+            print("Incorrect input. Try again.")
         else:
             candies_total -= player_step
             if candies_total < 0:
@@ -67,7 +67,7 @@ while candies_total > 0:
     elif game_type == 1 and player == 2:
         player_step = int(input(f"Player {player}, take: "))
         if player_step < 0 or player_step > candies_limit:
-            print("Incorrect input")
+            print("Incorrect input. Try again.")
         else:
             candies_total -= player_step
             if candies_total < 0:
@@ -77,6 +77,6 @@ while candies_total > 0:
 
 print("The game finished.")
 if game_type == 2 and player == 2:
-    print("The bot won and took all candies.")
+    print("The Bot won and took all candies.")
 else:
-    print(f"The player {player} won and took all candies.")
+    print(f"The Player {player} won and took all candies.")
