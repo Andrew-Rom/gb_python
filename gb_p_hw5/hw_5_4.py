@@ -17,10 +17,10 @@ clear()
 def bot(total_candies, limit):
     step = total_candies % limit + 1
     if not step:
-        step = randint(1, limit + 1)
+        step = random.randint(1, limit + 1)
     return step
 
-candies_total = 2021
+candies_total = 121
 candies_limit = 28
 
 game_type = None
@@ -39,28 +39,41 @@ while candies_total > 0:
     if game_type == 2 and player == 2:
         player_step = bot(candies_total, candies_limit)
         print(f"The bot took {player_step} candies")
-        player = 1
+        candies_total -= player_step
+        if candies_total < 0:
+            break
+        else:
+            player = 1
     elif game_type == 2 and player == 1:
         player_step = int(input(f"Player {player}, take: "))
         if player_step <= 0 or player_step > candies_limit:
             print("Incorrect input")
         else:
             candies_total -= player_step
-            player = 2
+            if candies_total < 0:
+                break
+            else:
+                player = 2
     elif game_type == 1 and player == 1:
         player_step = int(input(f"Player {player}, take: "))
         if player_step < 0 or player_step > candies_limit:
             print("Incorrect input")
         else:
             candies_total -= player_step
-            player = 2
+            if candies_total < 0:
+                break
+            else:
+                player = 2
     elif game_type == 1 and player == 2:
         player_step = int(input(f"Player {player}, take: "))
         if player_step < 0 or player_step > candies_limit:
             print("Incorrect input")
         else:
             candies_total -= player_step
-            player = 1
+            if candies_total < 0:
+                break
+            else:
+                player = 1
 
 print("The game finished.")
 if game_type == 2 and player == 2:
